@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8" />
+		<title>Página HTML</title>
+
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+		<script src="tableform.js"></script>
+		
+	</head>
+	<body>
+		<table id="tabela" 
+				class="w3-table w3-card-4 w3-bordered w3-striped" 
+				data-row-count="1">
+			<tr id="header">
+				<th>Número</th>
+				<th>Nome</th>
+				<th>Sexo</th>
+				<th>Ações</th>
+			</tr>
+			<tr class="w3-hover-grey" style="display: none">
+				<td>	
+					<div data-row-number></div>
+		    	 	<input
+		    			data-row-number 
+		    			type="hidden" 
+		    			disabled
+		    			name="info[#][numero]">
+				</td>
+				<td>
+					<input id="nome"
+						disabled
+						type="text" 
+						class="w3-input" 
+						name="info[#][nome]" 
+						oninput="localStorage.setItem(this.id, this.value);"/>
+				</td>
+				<td>
+					<select id="sexo"
+							disabled
+							class="w3-select" 
+							onchange="localStorage.setItem(this.id, this.options[this.options.selectedIndex].value);">
+						<option value="1">Masculino</option>
+						<option value="2">Feminio</option>
+					</select>
+				</td>
+				<td>
+					<a 
+							class="w3-button w3-teal" 
+							onclick="deleteRow('tabela', this)">
+						Excluir
+					</a>
+					<a class="w3-button w3-teal">Editar</a>
+				</td>
+			</tr>
+		</table>
+		<a class="w3-button w3-margin w3-teal" onclick="addRow('tabela')">+</a>
+
+	</body>
+</html>
