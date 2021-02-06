@@ -10,23 +10,16 @@
 		
 	</head>
 	<body>
-		<table id="tabela" 
-				class="w3-table w3-card-4 w3-bordered w3-striped" 
-				data-row-count="1">
-			<tr id="header">
-				<th>Número</th>
-				<th>Nome</th>
-				<th>Sexo</th>
-				<th>Ações</th>
-			</tr>
+		<template id="pessoaRowData">
+			<!-- put only children in template -->
 			<tr class="w3-hover-grey" style="display: none">
 				<td>	
 					<div data-row-number></div>
-		    	 	<input
-		    			data-row-number 
-		    			type="hidden" 
-		    			disabled
-		    			name="info[#][numero]">
+					<input
+						data-row-number 
+						type="hidden" 
+						disabled
+						name="info[#][numero]">
 				</td>
 				<td>
 					<input id="nome"
@@ -48,14 +41,47 @@
 				<td>
 					<a 
 							class="w3-button w3-teal" 
-							onclick="deleteRow('tabela', this)">
+							onclick="formTableDeleteRow(this)">
 						Excluir
 					</a>
-					<a class="w3-button w3-teal">Editar</a>
 				</td>
 			</tr>
+		</template>
+		<table id="tabela" 
+				class="form-table w3-table w3-card-4 w3-bordered w3-striped" 
+				data-templateId="pessoaRowData"
+				data-row-count="1">
+			<tr id="header">
+				<th>Número</th>
+				<th>Nome</th>
+				<th>Sexo</th>
+				<th>Ações</th>
+			</tr>
 		</table>
-		<a class="w3-button w3-margin w3-teal" onclick="addRow('tabela')">+</a>
+		<!-- <table id="tabela2" 
+				class="form-table w3-table w3-card-4 w3-bordered w3-striped" 
+				data-templateId="pessoaRowData"
+				data-row-count="1">
+			<tr id="header">
+				<th>Número</th>
+				<th>Nome</th>
+				<th>Sexo</th>
+				<th>Ações</th>
+			</tr>
+		</table>
+		<table id="tabela3" 
+				class="form-table w3-table w3-card-4 w3-bordered w3-striped" 
+				data-templateId="pessoaRowData"
+				data-row-count="1">
+			<tr id="header">
+				<th>Número</th>
+				<th>Nome</th>
+				<th>Sexo</th>
+				<th>Ações</th>
+			</tr>
+		</table> -->
 
+		<a class="w3-button w3-margin w3-teal" 
+			onclick="formTableAddRow('.form-table')">+</a>
 	</body>
 </html>
